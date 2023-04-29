@@ -1,6 +1,6 @@
 <template>
-  <div class="app-cart"
-  :style="{height: componentHeight + 'px'}"> 
+  <div class="app-cart">
+ 
     <p class="app-cart-cart">Корзина</p> 
     <p class="app-cart-cart" @click="goToTheCatalog" > &lt;--- Вернуться в каталог</p>
     <p v-if="cartList.length==0" class="app-cart-empty-cart">Корзина пуста</p>
@@ -72,7 +72,7 @@ export default {
   mounted(){
     this.getDataFromSessionStorage()
     this.getTotalAndCount();
-    this.componentHeight =  window.screen.height - 140;
+    
     },
   methods: {
     goToTheCatalog(){
@@ -153,7 +153,12 @@ p {
   flex-direction: row;
   justify-content: space-between;
   margin-top: 13px;
+ 
 }
+.app-cart-list {
+  overflow: auto;
+}
+
 
 .app-cart-item {
   width: 507px;
