@@ -139,7 +139,9 @@ export default {
   background: #EAEAEA;
   display:flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  min-height: 100vh;
 }
 .app-wrapper-header {
   width: 1135px;

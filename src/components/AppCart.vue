@@ -15,13 +15,13 @@
             <div class="app-cart-change-count">
               <img 
               @click="decrease(item.id)" 
-              class="app-cart-minus" 
+              class="app-cart-minus point" 
               src="../images/minus.svg"
               >
               <p class="app-cart-count"> {{ item.countInCart }} </p>
               <img 
               @click="increase(item.id)"
-              class="app-cart-plus" 
+              class="app-cart-plus point" 
               src="../images/plus.svg"
               >
             </div>
@@ -33,7 +33,7 @@
           <div class="app-cart-right-side">
             <img 
             @click="deleteItem(item.id)"
-            class="app-cart-icon-delete" 
+            class="app-cart-icon-delete point" 
             src="../images/Delete.svg" 
             alt="delete">
             <div class="app-cart-totalSum">{{ item.currentPrice*item.countInCart }} &#8381;</div>
@@ -139,6 +139,10 @@ export default {
 p {
   font-family: 'Montserrat', sans-serif;
 }
+.app-cart {
+  min-height:100hv;
+}
+
 
 .app-cart-cart {
   margin-top: 29px;
@@ -272,6 +276,9 @@ p {
   line-height: 21px;
   text-align: center;
   margin-top: 22px;
+}
+.point {
+  cursor: pointer;
 }
 
 

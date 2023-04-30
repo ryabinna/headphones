@@ -20,7 +20,7 @@
               <p class="price">{{ item.currentPrice }}&#8381;</p>
               <p v-if="item.fullPrice" class="price line-through">{{ item.fullPrice }}&#8381;</p>
             </div>
-              <p v-if="!item.countInCart" class="app-catalog-item-buy"
+              <p v-if="!item.countInCart" class="app-catalog-item-buy point"
                 @click="putProductInTheCart(item.id)"
               >купить</p>
               <p v-else class="app-catalog-item-buy"
@@ -49,7 +49,7 @@
               <p class="price">{{ item.currentPrice }}&#8381;</p>
               <p v-if="item.fullPrice" class="price line-through">{{ item.fullPrice }}&#8381;</p>
             </div>
-              <p v-if="!item.countInCart" class="app-catalog-item-buy"
+              <p v-if="!item.countInCart" class="app-catalog-item-buy point"
               @click="putProductInTheCart(item.id)"
               >купить</p>
               <p v-else class="app-catalog-item-buy"
@@ -291,6 +291,9 @@ p {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
+}
+.point {
+  cursor: pointer;
 }
 
 </style>
