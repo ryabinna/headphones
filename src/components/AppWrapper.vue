@@ -14,11 +14,13 @@
           </div>
         </div>
         <div class="app-wrapper-icon">
-          <img 
-          @click="goToTheCart"
-          class="app-wrapper-header-img" 
-          src="../images/cart.svg" 
-          alt="cart">
+          <router-link :to='{name:"inCart"}'> 
+            <img     
+              class="app-wrapper-header-img" 
+              src="../images/cart.svg"  
+              alt="cart"> 
+          </router-link>
+          
           <div 
             v-if="countCartOnIcon" 
             class="app-wrapper-circle-number"
@@ -29,14 +31,8 @@
           </div>
         </div>
       </div>
-    </header>
-    <app-catalog 
-      v-if="isCatalogOpen"
-      @updateStorage="updateData"/>
-    <app-cart 
-      v-else
-      @changePage="goToTheCatalog"
-      @updateStorage="updateData"/>
+    </header> 
+    <router-view  @updateStorage="updateData"/>
     <footer class="app-wrapper-footer">
       <div class="app-wrapper-footer-wrap">
         <div class="app-wrapper-footer-left-side">
@@ -49,7 +45,7 @@
                 <a> Избранное</a>
               </li>
               <li class="app-wrapper-footer-nav-item">
-                <a @click="goToTheCart()"> Корзина</a>
+                <router-link :to='{name:"inCart"}'>Корзина</router-link>
               </li>
               <li class="app-wrapper-footer-nav-item">
                 <a> Контакты</a>
@@ -80,18 +76,11 @@
 
 <script>
 
-import AppCatalog from './AppCatalog';
-import AppCart from './AppCart';
-
 export default {
   name: 'AppWrapper',
-  components: {
-    AppCatalog,
-    AppCart,
-  },
   data(){
     return {
-      isCatalogOpen: true,
+      
       countCartOnIcon: 0,
       productsInCart: [],
     }
@@ -100,12 +89,6 @@ export default {
     this.updateData();
   },
   methods: {
-    goToTheCart(){
-      this.isCatalogOpen = false;
-    },
-    goToTheCatalog(){
-      this.isCatalogOpen = true;
-    },
     updateData(){
       this.productsInCart=JSON.parse(sessionStorage.getItem("cartList"));
       this.getCountCartOnIcon();
@@ -113,7 +96,7 @@ export default {
     getCountCartOnIcon(){
       if (!this.productsInCart) {
         this.countCartOnIcon = 0;
-         return this.countCartOnIcon;
+        return this.countCartOnIcon;
         } else 
       {this.countCartOnIcon = 0;
 

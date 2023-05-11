@@ -181,14 +181,22 @@ export default {
     putProductInTheCart(id){
       this.headphones.map(item=>{if(item.id===id){
         item.countInCart+=1;
-        if (!this.listSelectedProduct[id]){
+        let a = 0;
+        this.listSelectedProduct.forEach(elem => {
+          if(elem.id !== id) {return} else {a=1}
+        }) 
+        if (!a){
           this.listSelectedProduct.push(item);
           }
         } 
       });
         this.wirelessHeadphones.map(item=>{if(item.id===id){
           item.countInCart+=1;
-          if (!this.listSelectedProduct[id]){
+          let a = 0;
+        this.listSelectedProduct.forEach(elem => {
+          if(elem.id !== id) {return} else {a=1}
+        }) 
+        if (!a){
           this.listSelectedProduct.push(item);
           }
         }

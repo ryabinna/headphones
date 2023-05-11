@@ -2,7 +2,7 @@
   <div class="app-cart">
  
     <p class="app-cart-cart">Корзина</p> 
-    <p class="app-cart-cart" @click="goToTheCatalog" > &lt;--- Вернуться в каталог</p>
+    <router-link :to='{name:"inCatalog"}'><p class="app-cart-cart"  > &lt;--- Вернуться в каталог</p></router-link>
     <p v-if="cartList.length==0" class="app-cart-empty-cart">Корзина пуста</p>
     <div class="app-cart-wrapper"> 
       <div class="app-cart-list">
@@ -46,7 +46,7 @@
           <p>{{ totalCart}} &#8381;</p>
         </div>
         <div class="app-cart-black-part">
-          <p>Перейти к оформлению</p>
+          <p> <router-link :to="{name:'inOrder'}">Перейти к оформлению</router-link></p>
         </div>
       </div>
     </div>
